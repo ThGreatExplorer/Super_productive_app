@@ -17,5 +17,7 @@
   "devDependencies": {
     "near-cli": "^3.3.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "react-timer-hook": "^3.0.6"
+  }
 }
