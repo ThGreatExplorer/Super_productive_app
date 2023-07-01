@@ -13,6 +13,7 @@ import meditate from '../svg/meditate.svg'
 import walk from '../svg/walk.svg'
 import water from '../svg/water.svg'
 import wakeup from '../svg/wakeup.svg'
+import custom from '../svg/custom.svg'
 import { useState } from 'react'
 import taskhashmap from '../utils/Text'
 
@@ -31,7 +32,7 @@ export default function CurrentTaskList(props) {
   }
   const handleCustomField = (e) => {
     console.log(e.target.value)
-    setCustomField(e.target.value) 
+    setCustomField(e.target.value)
   }
   return (
     <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
@@ -110,11 +111,18 @@ export default function CurrentTaskList(props) {
       <ListItem
         secondaryAction={
           <IconButton edge='end' aria-label='add'>
-            <AddIcon onClick={() => handleClick(customField)}/>
+            <AddIcon onClick={() => handleClick(customField)} />
           </IconButton>
         }
       >
-        <TextField id='filled-basic' placeholder='Enter a custom task' onChange={(e) => handleCustomField(e)}/>
+        <ListItemIcon>
+          <SVG src={custom} style={{ height: 100, width: 50 }} />
+        </ListItemIcon>
+        <TextField
+          id='filled-basic'
+          placeholder='Enter a custom task'
+          onChange={(e) => handleCustomField(e)}
+        />
       </ListItem>
     </List>
   )

@@ -30,7 +30,7 @@ export default function BasicButtonGroup(props) {
   return (
     <ButtonGroup variant="contained" aria-label="outlined primary button group">
      <Button onClick={handleBack}><ArrowBackIosIcon /></Button>
-      {GetDates(startDate, 7).map(element => {
+      {GetDates(selectDate, 7).map(element => {
         let dateArr = element.split(',')
         return(
       <Button style={{ display: "block", textAlign: "center" }}>
