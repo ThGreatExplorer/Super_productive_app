@@ -18,7 +18,7 @@ function App({ isSignedIn, wallet }) {
           : <Button onClick={signIn} style={{backgroundColor: "#ffffff",  marginTop: "20px", marginBottom: "20px"}} variant="outlined" size="small">Log into my near wallet</Button>
         }
       <NewTaskList currentTaskList={currentTaskList} setCurrentTaskList={setCurrentTaskList}/>
-      <CurrentTaskList currentTaskList={currentTaskList} />
+      <CurrentTaskList currentTaskList={currentTaskList} setCurrentTaskList={setCurrentTaskList} />/>
     </div>
   );
 }
