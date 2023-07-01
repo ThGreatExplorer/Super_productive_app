@@ -111,7 +111,7 @@ export default function CurrentTaskList(props) {
       <ListItem
         secondaryAction={
           <IconButton edge='end' aria-label='add'>
-            <AddIcon onClick={() => handleClick(customField)} />
+            <AddIcon onClick={() => handleClick(customField, custom)} />
           </IconButton>
         }
       >
