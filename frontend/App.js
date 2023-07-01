@@ -5,7 +5,10 @@ import CurrentTaskList from './TaskList/CurrentTaskList';
 import TimerComponent from './Timer/timer';
 import Button from '@mui/material/Button';
 import { GetDates } from './utils/DateUtils';
-function App({ isSignedIn, wallet, productivityApp}) {
+import Spotify_api from './spotify_api/spotify';
+//import "bootstrap/dist/css/bootstrap.min.css";
+
+function App({ isSignedIn, wallet }) {
   const time = new Date();
   time.setSeconds(time.getSeconds() + 600); // 10 minutes timer
   const [currentTaskList, setCurrentTaskList] = useState([])
@@ -28,6 +31,7 @@ function App({ isSignedIn, wallet, productivityApp}) {
         <NewTaskList currentTaskList={currentTaskList} setCurrentTaskList={setCurrentTaskList} currentDate={currentDate} productivityApp={productivityApp} />
         <CurrentTaskList currentTaskList={currentTaskList} setCurrentTaskList={setCurrentTaskList} currentDate={currentDate} productivityApp={productivityApp}/>
         <TimerComponent expiryTimestamp={time}/>
+        <Spotify_api />
       </div>
   </div>
   );

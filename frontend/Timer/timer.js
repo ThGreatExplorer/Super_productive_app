@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useTimer } from 'react-timer-hook';
+import './timer.css';
 
 function TimerComponent({ expiryTimestamp }) {
   const [duration, setDuration] = useState(300);
@@ -8,7 +9,6 @@ function TimerComponent({ expiryTimestamp }) {
     seconds,
     minutes,
     hours,
-    days,
     isRunning,
     start,
     pause,
@@ -16,58 +16,49 @@ function TimerComponent({ expiryTimestamp }) {
     restart,
   } = useTimer({ expiryTimestamp, onExpire: () => console.warn('onExpire called') });
 
+  const updateTimer = (newDuration) => {
+    if (!isRunning) {
+      const currentTime = new Date();
+      currentTime.setSeconds(currentTime.getSeconds() + newDuration);
+      restart(currentTime);
+    }
+    setDuration(newDuration);
+  };
+
   const incrementDuration = () => {
-    setDuration((prevDuration) => {
-      const newDuration = prevDuration + 300;
-      if (!isRunning) {
-        // Update the timer if it's not running
-        const currentTime = new Date();
-        currentTime.setSeconds(currentTime.getSeconds() + newDuration);
-        restart(currentTime);
-      }
-      return newDuration;
-    });
+    updateTimer(duration + 300);
   };
 
   const decrementDuration = () => {
-    setDuration((prevDuration) => {
-      const newDuration = Math.max(prevDuration - 300, 0);
-      if (!isRunning) {
-        // Update the timer if it's not running
-        const currentTime = new Date();
-        currentTime.setSeconds(currentTime.getSeconds() + newDuration);
-        restart(currentTime);
-      }
-      return newDuration;
-    });
+    const newDuration = Math.max(duration - 300, 0);
+    updateTimer(newDuration);
+  };
+
+  const handleRestart = () => {
+    const currentTime = new Date();
+    currentTime.setSeconds(currentTime.getSeconds() + duration);
+    restart(currentTime);
   };
 
   return (
-    <div style={{ textAlign: 'center' }}>
-      <h1>Timer</h1>
-      <div style={{ fontSize: '60px' }}>
+    <div className="timer-container">
+      <h1 className="timer-title">Timer</h1>
+      <div className="timer-display">
         <span>{hours.toString().padStart(2, '0')}</span>:
         <span>{minutes.toString().padStart(2, '0')}</span>:
         <span>{seconds.toString().padStart(2, '0')}</span>
       </div>
-      <div>
-        <button onClick={incrementDuration}>+5 min</button>
-        <button onClick={decrementDuration}>-5 min</button>
+      <div className="timer-button-container">
+        <button className="timer-button" onClick={incrementDuration}>+5 min</button>
+        <button className="timer-button" onClick={decrementDuration}>-5 min</button>
       </div>
-      <p>{isRunning ? 'Running' : 'Not running'}</p>
-      <button onClick={start}>Start</button>
-      <button onClick={pause}>Pause</button>
-      <button onClick={resume}>Resume</button>
-      <button
-        onClick={() => {
-          // Restarts the timer with the updated duration
-          const currentTime = new Date();
-          currentTime.setSeconds(currentTime.getSeconds() + duration);
-          restart(currentTime);
-        }}
-      >
-        Restart
-      </button>
+      <p className="timer-status">{isRunning ? 'Running' : 'Not running'}</p>
+      <div className="timer-actions">
+        <button className="timer-button" onClick={start}>Start</button>
+        <button className="timer-button" onClick={pause}>Pause</button>
+        <button className="timer-button" onClick={resume}>Resume</button>
+        <button className="timer-button" onClick={handleRestart}>Restart</button>
+      </div>
     </div>
   );
 }

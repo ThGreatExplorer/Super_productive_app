@@ -1,0 +1,14 @@
+.input-container {
+    padding: 10px;
+  }
+
+.input-field {
+    background-color: white;
+    color: black;
+    padding: 5px;
+}
+
+.submit-button {
+    padding: 5px 10px;
+    margin-left: 5px;
+  }
