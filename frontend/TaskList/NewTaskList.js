@@ -14,12 +14,20 @@ import walk from '../svg/walk.svg'
 import water from '../svg/water.svg'
 import wakeup from '../svg/wakeup.svg'
 import { useState } from 'react'
+import taskhashmap from '../utils/Text'
 
 export default function CurrentTaskList(props) {
   const [customField, setCustomField] = useState('')
-  const handleClick = (name) => {
-    props.setCurrentTaskList([...props.currentTaskList, name])
-    console.log(props.currentTaskList)
+  const handleClick = (name, icon) => {
+    // prevents empty tasks from being created
+    if (name && name !== '') {
+      const newTask = {
+        name: name,
+        icon: icon
+      };
+      props.setCurrentTaskList([...props.currentTaskList, newTask])
+      console.log(props.currentTaskList)
+    }
   }
   const handleCustomField = (e) => {
     console.log(e.target.value)
@@ -30,74 +38,74 @@ export default function CurrentTaskList(props) {
       <ListItem
         secondaryAction={
           <IconButton edge='end' aria-label='add'>
-            <AddIcon onClick={() => handleClick('wakeup')}/>
+            <AddIcon onClick={() => handleClick('wakeup', wakeup)}/>
           </IconButton>
         }
       >
         <ListItemIcon>
           <SVG src={wakeup} style={{ height: 100, width: 50 }} />
         </ListItemIcon>
-        <ListItemText primary='Wake up early' />
+        <ListItemText primary={taskhashmap['wakeup']} style={{ color: 'black' }} />
       </ListItem>
       <ListItem
         secondaryAction={
           <IconButton edge='end' aria-label='add'>
-            <AddIcon onClick={() => handleClick('bed')}/>
+            <AddIcon onClick={() => handleClick('bed', bed)}/>
           </IconButton>
         }
       >
         <ListItemIcon>
           <SVG src={bed} style={{ height: 100, width: 50 }} />
         </ListItemIcon>
-        <ListItemText primary='Make my bed' />
+        <ListItemText primary={taskhashmap['bed']} style={{ color: 'black' }} />
       </ListItem>
       <ListItem
         secondaryAction={
           <IconButton edge='end' aria-label='add'>
-            <AddIcon onClick={() => handleClick('water')}/>
+            <AddIcon onClick={() => handleClick('water', water)}/>
           </IconButton>
         }
       >
         <ListItemIcon>
           <SVG src={water} style={{ height: 100, width: 50 }} />
         </ListItemIcon>
-        <ListItemText primary='Drink water' />
+        <ListItemText primary={taskhashmap['water']} style={{ color: 'black' }} />
       </ListItem>
       <ListItem
         secondaryAction={
           <IconButton edge='end' aria-label='add'>
-            <AddIcon onClick={() => handleClick('walk')}/>
+            <AddIcon onClick={() => handleClick('walk', walk)}/>
           </IconButton>
         }
       >
         <ListItemIcon>
           <SVG src={walk} style={{ height: 100, width: 50 }} />
         </ListItemIcon>
-        <ListItemText primary='Step outside for a walk' />
+        <ListItemText primary={taskhashmap['walk']} style={{ color: 'black' }} />
       </ListItem>
       <ListItem
         secondaryAction={
           <IconButton edge='end' aria-label='add'>
-            <AddIcon onClick={() => handleClick('meditate')}/>
+            <AddIcon onClick={() => handleClick('meditate', meditate)}/>
           </IconButton>
         }
       >
         <ListItemIcon>
           <SVG src={meditate} style={{ height: 100, width: 50 }} />
         </ListItemIcon>
-        <ListItemText primary='Take time to meditate' />
+        <ListItemText primary={taskhashmap['meditate']} style={{ color: 'black' }} />
       </ListItem>
       <ListItem
         secondaryAction={
           <IconButton edge='end' aria-label='add'>
-            <AddIcon onClick={() => handleClick('gym')}/>
+            <AddIcon onClick={() => handleClick('gym', gym)}/>
           </IconButton>
         }
       >
         <ListItemIcon>
           <SVG src={gym} style={{ height: 100, width: 50 }} />
         </ListItemIcon>
-        <ListItemText primary='Workout in the gym' />
+        <ListItemText primary={taskhashmap['gym']} style={{ color: 'black' }} />
       </ListItem>
       <ListItem
         secondaryAction={
