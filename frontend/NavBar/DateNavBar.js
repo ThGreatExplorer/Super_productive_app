@@ -10,21 +10,17 @@ function getStartDate(currentDate){
     return new Date(currentDate.setDate(currentDate.getDate() - 3));
 }
 
-export default function BasicButtonGroup(props) {
-  const [selectDate, setSelectDate] = useState(new Date())
-  console.log(selectDate)
-  let startDate = getStartDate(selectDate)
 
-  function handleBack() {
-    const newDate = new Date(selectDate);
-    newDate.setDate(newDate.getDate() - 1);
-    setSelectDate(newDate);
+
+export default function BasicButtonGroup(props) {
+  const [selectDate, setSelectDate] = useState(getStartDate(new Date()))
+
+  function handleBack(){
+    setSelectDate(new Date(selectDate.setDate(selectDate.getDate() - 1)))
   }
   
-  function handleForward() {
-    const newDate = new Date(selectDate);
-    newDate.setDate(newDate.getDate() + 1);
-    setSelectDate(newDate);
+  function handleForward(){
+    setSelectDate(new Date(selectDate.setDate(selectDate.getDate() + 1)))
   }
 
   return (

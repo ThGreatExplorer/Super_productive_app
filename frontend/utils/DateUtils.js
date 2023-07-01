@@ -4,7 +4,7 @@ export function GetDates(startDate, daysToAdd) {
     for(let i = 0; i <= daysToAdd; i++) {
         let currentDate = new Date();
         currentDate.setDate(startDate.getDate() + i);
-        aryDates.push(DayAsString(currentDate.getDay()) + ", " + currentDate.getDate() + " " + MonthAsString(currentDate.getMonth()));
+        aryDates.push(DayAsString(currentDate.getDay()) + ", " + currentDate.getDate() + " " + MonthAsString(currentDate.getMonth() - 1));
     }
     
     return aryDates;
