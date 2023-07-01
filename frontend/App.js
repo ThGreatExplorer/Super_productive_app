@@ -26,9 +26,9 @@ function App({ isSignedIn, wallet }) {
             ? <><span style={{fontSize: "20px", color:"#0066FF"}}>Welcome!  {wallet.accountId}</span><Button onClick={signOut} style={{backgroundColor: "#ffffff", marginTop: "20px", marginBottom: "20px", marginLeft: "20px"}} variant="outlined" size="small">Log out</Button></>
             : <Button onClick={signIn} style={{backgroundColor: "#ffffff",  marginTop: "20px", marginBottom: "20px"}} variant="outlined" size="small">Log into my near wallet</Button>
           }
-        { true && <Button style={{backgroundColor: "#ffffff", marginTop: "20px", marginBottom: "20px"}} variant="outlined" size="small">balance: {currentBalance} <SVG src={near} style={{height:"10px", width:"10px", marginLeft:"10px"}}></SVG></Button>}
+        { isSignedIn && <Button style={{backgroundColor: "#ffffff", marginTop: "20px", marginBottom: "20px"}} variant="outlined" size="small">balance: {currentBalance} <SVG src={near} style={{height:"10px", width:"10px", marginLeft:"10px"}}></SVG></Button>}
         </div>
-        { true && <>
+        { isSignedIn && <>
         <NewTaskList currentTaskList={currentTaskList} setCurrentTaskList={setCurrentTaskList}/>
         <CurrentTaskList currentTaskList={currentTaskList} setCurrentTaskList={setCurrentTaskList} setCurrentBalance={setCurrentBalance} currentBalance={currentBalance} />
         <TimerComponent expiryTimestamp={time}/>
