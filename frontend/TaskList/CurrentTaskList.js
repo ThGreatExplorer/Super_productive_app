@@ -14,6 +14,7 @@ import walk from '../svg/walk.svg';
 import water from '../svg/water.svg';
 import wakeup from '../svg/wakeup.svg';
 import custom from '../svg/custom.svg';
+import near from '../svg/near.svg'
 import { useState } from 'react';
 
 const categoryToSVG = {
@@ -26,13 +27,14 @@ const categoryToSVG = {
   custom: custom,
 };
 
-const CurrentTaskList = ({ currentTaskList, setCurrentTaskList }) => {
+const CurrentTaskList = ({ currentTaskList, setCurrentTaskList, setCurrentBalance, currentBalance}) => {
   const handleTaskCompletion = (index) => {
     setCurrentTaskList((prevTaskList) => {
       const updatedTaskList = [...prevTaskList];
       updatedTaskList.splice(index, 1); // Remove the completed task
       return updatedTaskList;
     });
+    setCurrentBalance(currentBalance + 0.01)
   };
 
   const slicedTaskList = currentTaskList.slice(0, 6);
