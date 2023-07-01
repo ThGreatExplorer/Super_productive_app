@@ -4,6 +4,7 @@ import NewTaskList from './TaskList/NewTaskList';
 import CurrentTaskList from './TaskList/CurrentTaskList';
 import TimerComponent from './Timer/timer';
 import Button from '@mui/material/Button';
+import Spotify_api from './spotify_api/spotify';
 
 function App({ isSignedIn, wallet }) {
   const time = new Date();
@@ -24,6 +25,7 @@ function App({ isSignedIn, wallet }) {
         <NewTaskList currentTaskList={currentTaskList} setCurrentTaskList={setCurrentTaskList}/>
         <CurrentTaskList currentTaskList={currentTaskList} setCurrentTaskList={setCurrentTaskList} />
         <TimerComponent expiryTimestamp={time}/>
+        <Spotify_api />
       </div>
   </div>
   );
