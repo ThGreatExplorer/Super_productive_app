@@ -2,13 +2,15 @@
     position: absolute;
     top: 35%;
     right: 50px;
-    left: 500px;
+    left: 1000px;
+    width: 400px; 
+    height: 200px;
     transform: translateY(-50%);
     text-align: center;
   }
   
   .timer-title {
-    font-size: 48px;
+    font-size: 40px;
     color: #0066FF;
     margin-bottom: 20px;
   }
