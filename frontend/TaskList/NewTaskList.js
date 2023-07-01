@@ -13,6 +13,7 @@ import meditate from '../svg/meditate.svg'
 import walk from '../svg/walk.svg'
 import water from '../svg/water.svg'
 import wakeup from '../svg/wakeup.svg'
+import custom from '../svg/custom.svg'
 import { useState } from 'react'
 
 export default function CurrentTaskList(props) {
@@ -23,14 +24,14 @@ export default function CurrentTaskList(props) {
   }
   const handleCustomField = (e) => {
     console.log(e.target.value)
-    setCustomField(e.target.value) 
+    setCustomField(e.target.value)
   }
   return (
     <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
       <ListItem
         secondaryAction={
           <IconButton edge='end' aria-label='add'>
-            <AddIcon onClick={() => handleClick('wakeup')}/>
+            <AddIcon onClick={() => handleClick('wakeup')} />
           </IconButton>
         }
       >
@@ -42,7 +43,7 @@ export default function CurrentTaskList(props) {
       <ListItem
         secondaryAction={
           <IconButton edge='end' aria-label='add'>
-            <AddIcon onClick={() => handleClick('bed')}/>
+            <AddIcon onClick={() => handleClick('bed')} />
           </IconButton>
         }
       >
@@ -54,7 +55,7 @@ export default function CurrentTaskList(props) {
       <ListItem
         secondaryAction={
           <IconButton edge='end' aria-label='add'>
-            <AddIcon onClick={() => handleClick('water')}/>
+            <AddIcon onClick={() => handleClick('water')} />
           </IconButton>
         }
       >
@@ -66,7 +67,7 @@ export default function CurrentTaskList(props) {
       <ListItem
         secondaryAction={
           <IconButton edge='end' aria-label='add'>
-            <AddIcon onClick={() => handleClick('walk')}/>
+            <AddIcon onClick={() => handleClick('walk')} />
           </IconButton>
         }
       >
@@ -78,7 +79,7 @@ export default function CurrentTaskList(props) {
       <ListItem
         secondaryAction={
           <IconButton edge='end' aria-label='add'>
-            <AddIcon onClick={() => handleClick('meditate')}/>
+            <AddIcon onClick={() => handleClick('meditate')} />
           </IconButton>
         }
       >
@@ -90,7 +91,7 @@ export default function CurrentTaskList(props) {
       <ListItem
         secondaryAction={
           <IconButton edge='end' aria-label='add'>
-            <AddIcon onClick={() => handleClick('gym')}/>
+            <AddIcon onClick={() => handleClick('gym')} />
           </IconButton>
         }
       >
@@ -102,11 +103,18 @@ export default function CurrentTaskList(props) {
       <ListItem
         secondaryAction={
           <IconButton edge='end' aria-label='add'>
-            <AddIcon onClick={() => handleClick(customField)}/>
+            <AddIcon onClick={() => handleClick(customField)} />
           </IconButton>
         }
       >
-        <TextField id='filled-basic' placeholder='Enter a custom task' onChange={(e) => handleCustomField(e)}/>
+        <ListItemIcon>
+          <SVG src={custom} style={{ height: 100, width: 50 }} />
+        </ListItemIcon>
+        <TextField
+          id='filled-basic'
+          placeholder='Enter a custom task'
+          onChange={(e) => handleCustomField(e)}
+        />
       </ListItem>
     </List>
   )
