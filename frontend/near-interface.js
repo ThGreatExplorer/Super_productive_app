@@ -1,23 +1,23 @@
 /* Talking with a contract often involves transforming data, we recommend you to encapsulate that logic into a class */
 
-export class ProductivityApp {
+import { utils } from 'near-api-js';
+
+export class GuestBook {
 
   constructor({ contractId, walletToUse }) {
     this.contractId = contractId;
     this.wallet = walletToUse
   }
 
-  async getTasks(dateId) {
-    const tasks = await this.wallet.viewMethod({ contractId: this.contractId, method: "get_tasks", args: { dateId } })
-    return tasks
+  async getMessages() {
+    const messages = await this.wallet.viewMethod({ contractId: this.contractId, method: "get_messages" })
+    console.log(messages)
+    return messages
   }
 
-  async addTask(id, task) {
-    return await this.wallet.callMethod({ contractId: this.contractId, method: "add_task", args: { id, task }});
-  }
-
-  async getAllTasks() {
-    return await this.wallet.viewMethod({ contractId: this.contractId, method: "get_all_tasks"});
+  async addMessage(message, donation) {
+    const deposit = utils.format.parseNearAmount(donation);
+    return await this.wallet.callMethod({ contractId: this.contractId, method: "add_message", args: { text: message }, deposit });
   }
 
 }
