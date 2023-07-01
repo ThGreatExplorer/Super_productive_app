@@ -13,9 +13,8 @@ function getStartDate(currentDate){
 
 
 export default function BasicButtonGroup(props) {
-  const [selectDate, setSelectDate] = useState(new Date())
-  console.log(selectDate)
-  let startDate = getStartDate(selectDate)
+  const [selectDate, setSelectDate] = useState(getStartDate(new Date()))
+
   function handleBack(){
     setSelectDate(new Date(selectDate.setDate(selectDate.getDate() - 1)))
   }
@@ -27,7 +26,7 @@ export default function BasicButtonGroup(props) {
   return (
     <ButtonGroup variant="contained" aria-label="outlined primary button group">
      <Button onClick={handleBack}><ArrowBackIosIcon /></Button>
-      {GetDates(startDate, 7).map(element => {
+      {GetDates(selectDate, 7).map(element => {
         let dateArr = element.split(',')
         return(
       <Button style={{ display: "block", textAlign: "center" }}>
