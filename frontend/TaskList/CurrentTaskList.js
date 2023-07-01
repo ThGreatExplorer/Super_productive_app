@@ -26,7 +26,7 @@ const categoryToSVG = {
   custom: custom,
 };
 
-const CurrentTaskList = ({ currentTaskList, setCurrentTaskList, productivityApp, currentDate}) => {
+const CurrentTaskList = ({ currentTaskList, setCurrentTaskList }) => {
   const handleTaskCompletion = (index) => {
     setCurrentTaskList((prevTaskList) => {
       const updatedTaskList = [...prevTaskList];
@@ -35,8 +35,8 @@ const CurrentTaskList = ({ currentTaskList, setCurrentTaskList, productivityApp,
     });
   };
 
-  //const slicedTaskList = currentTaskList.slice(0, 6);
-  const slicedTaskList = productivityApp.getTasks(currentDate).slice(0, 6);
+  const slicedTaskList = currentTaskList.slice(0, 6);
+
   return (
     <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
       {slicedTaskList.map((element, index) => (
