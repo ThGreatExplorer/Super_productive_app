@@ -10,6 +10,7 @@ function Spotify_api() {
     const REDIRECT_URI = "http://localhost:1234"
     const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
     const RESPONSE_TYPE = "token"
+    const SCOPE = "streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state"
 
     const [token, setToken] = useState("")
     const [searchKey, setSearchKey] = useState("")
@@ -50,7 +51,8 @@ function Spotify_api() {
         try {
             const response = await axios.get(endpoint, { headers });
 
-            const trackItems = response.data.tracks.items.map((track) => {
+            //show first 10 results
+            const trackItems = response.data.tracks.items.slice(0,10).map((track) => {
                 const smallestImage = track.album.images.reduce(
                     (smallest, image) => {
                         if (image.height < smallest.height) {
@@ -79,7 +81,7 @@ function Spotify_api() {
         <div>
             <h1>Spotify Music</h1>
             {!token ?
-                <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>Login
+                <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`}>Login
                     to Spotify</a>
                 : <button onClick={logout}>Logout</button>}
             {token ? (
