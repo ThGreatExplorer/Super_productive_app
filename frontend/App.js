@@ -5,6 +5,7 @@ import CurrentTaskList from './TaskList/CurrentTaskList';
 import TimerComponent from './Timer/timer';
 import Button from '@mui/material/Button';
 import Spotify_api from './spotify_api/spotify';
+//import "bootstrap/dist/css/bootstrap.min.css";
 
 function App({ isSignedIn, wallet }) {
   const time = new Date();
