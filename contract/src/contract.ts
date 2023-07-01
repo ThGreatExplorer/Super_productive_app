@@ -52,24 +52,24 @@
 
 // export default ProductivityApp;
 
-import { NearBindgen, near, call, view, Vector, UnorderedMap} from 'near-sdk-js'
+import { NearBindgen, near, call, view, UnorderedMap} from 'near-sdk-js'
 
 @NearBindgen({})
 class ProductivityApp {
-  tasks: UnorderedMap<string> = new UnorderedMap<string>('unique-id-map1')
+  tasks: UnorderedMap<any> = new UnorderedMap<any>('unique-id-map1')
   @call({ payableFunction: false })
   add_task(key: string, value: string): void {
-      this.tasks.set(key, value)
+      this.tasks.set(key, [...this.tasks.get(key), value])
   }
 
   @view({})
-  // Returns an array of messages.
-  get_tasks(key:string): string{
+  // Returns an array of tasks by id.
+  get_tasks(key:string): any{
     return this.tasks.get(key)
   }
 
   @view({})
-  // Returns an array of messages.
+  // Returns an array of tasks.
   get_all_tasks(){
     return []
   }

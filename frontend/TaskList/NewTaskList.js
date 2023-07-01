@@ -37,6 +37,7 @@ export default function CurrentTaskList(props) {
         difficulty: difficulty,
         dueDate: dueDate,
       };
+      props.productivityApp.addTask(props.currentDate, newTask)
       props.setCurrentTaskList([...props.currentTaskList, newTask]);
     }
   };

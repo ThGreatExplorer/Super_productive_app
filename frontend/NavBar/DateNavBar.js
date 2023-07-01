@@ -23,13 +23,17 @@ export default function BasicButtonGroup(props) {
     setSelectDate(new Date(selectDate.setDate(selectDate.getDate() + 1)))
   }
 
+  function handleDateClick(e){
+    // props.productivityApp.getAllTasks()
+    props.setCurrentDate(e.target.lastChild.nodeValue)
+  }
   return (
     <ButtonGroup variant="contained" aria-label="outlined primary button group">
      <Button onClick={handleBack}><ArrowBackIosIcon /></Button>
       {GetDates(selectDate, 7).map(element => {
         let dateArr = element.split(',')
         return(
-      <Button style={{ display: "block", textAlign: "center" }}>
+      <Button style={{ display: "block", textAlign: "center" }} onClick={e => handleDateClick(e)}>
       <div>{dateArr[0]}</div>
       <div>{dateArr[1]}</div>
       </Button>)})}
