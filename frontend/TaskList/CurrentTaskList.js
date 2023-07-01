@@ -14,6 +14,7 @@ import walk from '../svg/walk.svg'
 import water from '../svg/water.svg'
 import wakeup from '../svg/wakeup.svg'
 import { useState } from 'react'
+import taskhashmap from '../utils/Text'
 
 export default function NewTaskList(props) {
   const [customField, setCustomField] = useState('')
@@ -32,14 +33,14 @@ export default function NewTaskList(props) {
       return(<ListItem
         secondaryAction={
           <IconButton edge='end' aria-label='add'>
-            <AddIcon onClick={() => handleClick('wakeup')}/>
+            <AddIcon onClick={() => handleClick(element.name, element.icon)}/>
           </IconButton>
         }
       >
         <ListItemIcon>
-          <SVG src={element} style={{ height: 100, width: 50 }} />
+          <SVG src={element.icon} style={{ height: 100, width: 50 }} />
         </ListItemIcon>
-        <ListItemText primary='Wake up early' />
+        <ListItemText primary={taskhashmap[element.name] || element.name}  style={{ color: 'black' }} />
       </ListItem>)})}
     </List>
   )
