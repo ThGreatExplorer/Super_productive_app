@@ -4,8 +4,10 @@ import NewTaskList from './TaskList/NewTaskList';
 import CurrentTaskList from './TaskList/CurrentTaskList';
 import TimerComponent from './Timer/timer';
 import Button from '@mui/material/Button';
-import near from './svg/near.svg'
+import near from './svg/near.svg';
 import SVG from 'react-inlinesvg';
+import Spotify_api from './spotify_api/spotify';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App({ isSignedIn, wallet }) {
   const [currentTaskList, setCurrentTaskList] = useState([])
@@ -32,6 +34,7 @@ function App({ isSignedIn, wallet }) {
         <NewTaskList currentTaskList={currentTaskList} setCurrentTaskList={setCurrentTaskList}/>
         <CurrentTaskList currentTaskList={currentTaskList} setCurrentTaskList={setCurrentTaskList} setCurrentBalance={setCurrentBalance} currentBalance={currentBalance} />
         <TimerComponent expiryTimestamp={time}/>
+        <Spotify_api />
         </>}
       </div>
   </div>
