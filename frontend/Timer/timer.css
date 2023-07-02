@@ -1,8 +1,7 @@
 .timer-container {
     position: absolute;
     top: 35%;
-    right: 50px;
-    left: 1000px;
+    left: 750px;
     width: 400px; 
     height: 200px;
     transform: translateY(-50%);
