@@ -1,71 +1,70 @@
 .timer-container {
-    position: absolute;
-    top: 35%;
-    left: 750px;
-    width: 400px; 
-    height: 200px;
-    transform: translateY(-50%);
-    text-align: center;
-  }
-  
-  .timer-title {
-    font-size: 40px;
-    color: #0066FF;
-    margin-bottom: 20px;
-  }
-  
-  .timer-display {
-    font-size: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .timer-display span {
-    padding: 0 10px;
-  }
-  
-  .timer-button-container {
-    margin-top: 20px;
-  }
-  
-  .timer-button {
-    background-color: #333;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    margin: 0 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .timer-button:hover {
-    background-color: #555;
-  }
-  
-  .timer-status {
-    margin-top: 20px;
-    font-size: 16px;
-    color: #f0eaea;
-  }
-  
-  .timer-actions {
-    margin-top: 20px;
-  }
-  
-  .timer-actions .timer-button {
-    background-color: #0066FF;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    margin: 0 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .timer-actions .timer-button:hover {
-    background-color: #0052cc;
-  }
-  
+  position: absolute;
+  top: 35%;
+  left: 500px;
+  width: 400px; 
+  height: 200px;
+  transform: translateY(-50%);
+  text-align: center;
+}
+
+.timer-title {
+  font-size: 40px;
+  color: #0066FF;
+  margin-bottom: 20px;
+}
+
+.timer-display {
+  font-size: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timer-display span {
+  padding: 0 10px;
+}
+
+.timer-button-container {
+  margin-top: 20px;
+}
+
+.timer-button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.timer-button:hover {
+  background-color: #555;
+}
+
+.timer-status {
+  margin-top: 20px;
+  font-size: 16px;
+  color: #070707;
+}
+
+.timer-actions {
+  margin-top: 20px;
+}
+
+.timer-actions .timer-button {
+  background-color: #0066FF;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 0 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.timer-actions .timer-button:hover {
+  background-color: #0052cc;
+}
