@@ -10,7 +10,6 @@ function Spotify_api() {
     const REDIRECT_URI = "http://localhost:1234"
     const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
     const RESPONSE_TYPE = "token"
-    const SCOPE = "streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state"
 
     const [token, setToken] = useState("")
     const [searchKey, setSearchKey] = useState("")
@@ -51,8 +50,7 @@ function Spotify_api() {
         try {
             const response = await axios.get(endpoint, { headers });
 
-            //show first 10 results
-            const trackItems = response.data.tracks.items.slice(0,10).map((track) => {
+            const trackItems = response.data.tracks.items.map((track) => {
                 const smallestImage = track.album.images.reduce(
                     (smallest, image) => {
                         if (image.height < smallest.height) {
