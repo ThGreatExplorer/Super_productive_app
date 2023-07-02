@@ -51,7 +51,8 @@ function Spotify_api() {
         try {
             const response = await axios.get(endpoint, { headers });
 
-            const trackItems = response.data.tracks.items.map((track) => {
+            //show first 10 results
+            const trackItems = response.data.tracks.items.slice(0,10).map((track) => {
                 const smallestImage = track.album.images.reduce(
                     (smallest, image) => {
                         if (image.height < smallest.height) {
@@ -78,11 +79,13 @@ function Spotify_api() {
 
     return (
         <div>
-            <h1>Spotify Music</h1>
-            {!token ?
-                <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`}>Login
-                    to Spotify</a>
-                : <button onClick={logout}>Logout</button>}
+            <div className="container">
+                <h1 className="mt-5">Spotify Music</h1>
+                {!token ?
+                    <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`} className="login-button btn btn-success mt-3">Login to Spotify</a>
+                    : <button onClick={logout} className="logout-button btn btn-danger mt-3">Logout</button>}
+            </div>
+
             {token ? (
                 <div>
                     <div className="input-container">
@@ -92,6 +95,8 @@ function Spotify_api() {
                                 className="input-field"
                                 placeholder="Enter your text"
                                 onChange={(e) => setSearchKey(e.target.value)}
+                           
+                              
                             />
                             <button type="submit" className="submit-button">
                                 Search
@@ -118,7 +123,7 @@ function Spotify_api() {
                         </div>
                     )}
                 </div>
-            ) : <h2>Please login</h2>}
+            ) : <h2 className="login-text"></h2>}
         </div>
     );
 }

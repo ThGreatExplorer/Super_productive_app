@@ -1,14 +1,61 @@
+.container {
+  text-align: center;
+}
+
+.login-button {
+  background-color: #0066FF;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.logout-button {
+  background-color: red;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
 .input-container {
-    padding: 10px;
-  }
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
 
 .input-field {
-    background-color: white;
-    color: black;
-    padding: 5px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
 
 .submit-button {
-    padding: 5px 10px;
-    margin-left: 5px;
-  }
+  background-color: blue;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.flex-grow-1 {
+  flex-grow: 1;
+}
+
+.my-2 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.login-text {
+  text-align: right;
+}
